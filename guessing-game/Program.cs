@@ -1,43 +1,21 @@
 ﻿using System;
 
-namespace guessing_game
+Console.WriteLine("Guess the Secret Number!");
+
+int SecretNumber = new Random().Next(1, 101);
+
+for (int i = 1; i <= 4; i++)
 {
-    class Program
+    Console.Write($"Your Guess {(i)}: ");
+    string answer = Console.ReadLine();
+    if (SecretNumber == int.Parse(answer))
     {
-        static void Main(string[] args)
-        {
-            Random r = new Random();
-            int SecretNum = r.Next(1, 101);
-            bool FoundNum = false;
-            int UserTries = 4;
-
-
-
-            while ((FoundNum != true) && (UserTries != 0))
-            {
-                Console.WriteLine("Guess the secret number.");
-                string UserGuess = Console.ReadLine();
-                int ParsedGuess = int.Parse(UserGuess);
-                if (ParsedGuess == SecretNum)
-                {
-                    Console.WriteLine("Yes, that's the number!");
-                    FoundNum = true;
-                }
-                else
-                {
-                    if (ParsedGuess > SecretNum)
-                    {
-                        Console.WriteLine("No, that's not the number." + "Your guess was higher than the secret number" + "Attempts remaining: " + UserTries--);
-                        FoundNum = false;
-                    }
-                    else
-                    {
-                        Console.WriteLine("No, that's not the number." + "Your guess was lower than the secret number. " + "Attempts remaining: " + --UserTries);
-                        FoundNum = false;
-                    }
-                }
-            }
-        }
+        Console.WriteLine("Correct!");
+        break;
+    }
+    else
+    {
+        Console.WriteLine("Nope!");
     }
 }
 

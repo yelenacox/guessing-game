@@ -3,19 +3,19 @@
 Console.WriteLine("Guess the Secret Number!");
 
 int SecretNumber = new Random().Next(1, 101);
-
-for (int i = 1; i <= 4; i++)
+Console.WriteLine(SecretNumber);
+for (int i = 4; i >= 1; i--)
 {
-    Console.Write($"Your Guess {(i)}: ");
-    string answer = Console.ReadLine();
-    if (SecretNumber == int.Parse(answer))
+    Console.Write($"Your Guess (Guesses left: {i}): ");
+    int answer = int.Parse(Console.ReadLine());
+    if (SecretNumber == answer)
     {
         Console.WriteLine("Correct!");
         break;
     }
     else
     {
-        Console.WriteLine("Nope!");
+        Console.WriteLine(SecretNumber > answer ? "too low!" : "too high!");
     }
 }
 

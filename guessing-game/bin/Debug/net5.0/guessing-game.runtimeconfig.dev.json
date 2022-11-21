@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\Thiccness\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Thiccness\\.nuget\\packages"
+    ]
+  }
+}

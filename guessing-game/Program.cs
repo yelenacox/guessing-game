@@ -6,14 +6,16 @@ namespace guessing_game
     {
         static void Main(string[] args)
         {
-            int SecretNum = 42;
+            Random r = new Random();
+            int SecretNum = r.Next(1, 101);
             bool FoundNum = false;
-            int UserTries = 0;
+            int UserTries = 4;
 
 
-            while ((FoundNum != true) && (UserTries < 4))
+
+            while ((FoundNum != true) && (UserTries != 0))
             {
-                Console.WriteLine("Guess the secret number. " + "Your Guess" + "(" + ++UserTries + ")");
+                Console.WriteLine("Guess the secret number.");
                 string UserGuess = Console.ReadLine();
                 int ParsedGuess = int.Parse(UserGuess);
                 if (ParsedGuess == SecretNum)
@@ -23,8 +25,16 @@ namespace guessing_game
                 }
                 else
                 {
-                    Console.WriteLine("No, that's not the number");
-                    FoundNum = false;
+                    if (ParsedGuess > SecretNum)
+                    {
+                        Console.WriteLine("No, that's not the number." + "Your guess was higher than the secret number" + "Attempts remaining: " + UserTries--);
+                        FoundNum = false;
+                    }
+                    else
+                    {
+                        Console.WriteLine("No, that's not the number." + "Your guess was lower than the secret number. " + "Attempts remaining: " + --UserTries);
+                        FoundNum = false;
+                    }
                 }
             }
         }

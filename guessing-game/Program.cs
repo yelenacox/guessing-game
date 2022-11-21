@@ -2,7 +2,19 @@
 using System.Collections.Generic;
 
 Console.Write("Difficulty? (1 - easy, 2 - medium, 3 - hard, 4 - cheater: ");
-int difficulty = int.Parse(Console.ReadLine());
+
+int difficulty;
+if (!int.TryParse(Console.ReadLine(), out difficulty))
+{
+    Console.WriteLine("Input integers only!!");
+    return;
+}
+if (difficulty > 4 || difficulty < 1)
+{
+    Console.WriteLine("choose a number betwen 1 and 4");
+    return;
+}
+
 List<int> difficulties = new List<int> { 8, 6, 4, 2 };
 int numberOfGuesses = difficulties[difficulty - 1];
 
